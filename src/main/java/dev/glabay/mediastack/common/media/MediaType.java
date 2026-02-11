@@ -5,5 +5,9 @@ package dev.glabay.mediastack.common.media;
  * @project MediaStack
  * @social Discord: Glabay
  * @since 2026-02-09
-*/public enum MediaType {
+ */
+public enum MediaType {
+    BOOK,
+    MOVIE,
+    GAME
 }
