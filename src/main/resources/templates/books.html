@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MediaStack  Library</title>
+</head>
+<body>
+
+    <h1>My Book Collection</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Pages</th>
+            </tr>
+        </thead>
+        <tbody>
+        <!--   java ref: for (var books : books) {...}     -->
+            <tr th:each="book : ${books}">
+            <!-- Java ref: book.filed or book.getFiled()   -->
+                <td th:text="${book.getTitle()}"></td>
+                <td th:text="${book.getAuthor()}"></td>
+                <td th:text="${book.getIsbn()}"></td>
+                <td th:text="${book.getTotalNumberOfPages()}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

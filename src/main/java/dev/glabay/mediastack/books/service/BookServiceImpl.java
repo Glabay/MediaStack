@@ -64,6 +64,11 @@ public final class BookServiceImpl implements IBookService {
     }
 
     @Override
+    public List<Book> getAllBooks() {
+        return List.copyOf(bookRepository.findAll());
+    }
+
+    @Override
     public Book updateBook(String isbn, Object updatedBookData) {
         return null;
     }

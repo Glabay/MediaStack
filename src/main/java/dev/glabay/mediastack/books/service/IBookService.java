@@ -21,6 +21,7 @@ public sealed interface IBookService permits BookServiceImpl {
     Book getBookById(Long id);
     Book getBookByIsbn(String isbn);
     List<Book> getAllBooksByAuthor(String author);
+    List<Book> getAllBooks();
 
     // Update
     Book updateBook(String isbn, Object updatedBookData);
