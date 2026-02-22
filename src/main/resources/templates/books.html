@@ -7,6 +7,13 @@
 <body>
 
     <h1>My Book Collection</h1>
+
+    <form action="/api/books" method="post">
+        <label for="isbn">Add book by ISBN:</label>
+        <input type="text" id="isbn" name="isbn">
+        <button type="submit">Add</button>
+    </form>
+
     <table>
         <thead>
             <tr>

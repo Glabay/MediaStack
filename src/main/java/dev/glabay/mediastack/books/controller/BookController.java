@@ -4,10 +4,8 @@ import dev.glabay.mediastack.books.domain.Book;
 import dev.glabay.mediastack.books.service.BookServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Glabay | Glabay-Studios
@@ -15,11 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
  * @social Discord: Glabay
  * @since 2026-02-10
  */
-@RestController
+@Controller
 @RequiredArgsConstructor
 @RequestMapping("/api/books")
 public class BookController {
     private final BookServiceImpl bookService;
+
+    @PostMapping
+    public String handleBookIsbn(@RequestParam String isbn) {
+        if (isbn.isBlank() || !isbn.matches("\\d{10,13}"))
+            return "redirect:/books";
+        bookService.getBookByIsbn(isbn);
+        return "redirect:/books";
+    }
 
     @GetMapping("/{isbn}")
     public ResponseEntity<Book> getBookByIsbn(@PathVariable String isbn) {
