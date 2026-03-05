@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Films</title>
+</head>
+<body>
+
+<h1>Films</h1>
+
+<table>
+    <tbody>
+    <tr th:each="film : ${films}">
+        <!-- Poster on the left -->
+        <td>
+            <img th:src="${film.getPosterUrl()}"
+                 th:alt="${film.getTitle()}"
+                 width="150" height="225">
+        </td>
+        <!-- Details stacked on the right -->
+        <td>
+            <div>
+                <strong>Title:</strong>
+                <span th:text="${film.getTitle()}">Film Title</span>
+            </div>
+            <div>
+                <strong>Genre:</strong>
+                <span th:text="${film.getGenres()}">Genre</span>
+            </div>
+            <div>
+                <strong>Released:</strong>
+                <span th:text="${film.getReleased()}">Release Date</span>
+            </div>
+            <div>
+                <strong>IMDB Rating:</strong>
+                <span th:text="${film.getImdbRating()}">0.0</span>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
