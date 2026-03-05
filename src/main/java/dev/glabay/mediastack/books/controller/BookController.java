@@ -1,10 +1,13 @@
 package dev.glabay.mediastack.books.controller;
 
 import dev.glabay.mediastack.books.domain.Book;
+import dev.glabay.mediastack.books.dto.IsnRequest;
 import dev.glabay.mediastack.books.service.BookServiceImpl;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -20,10 +23,13 @@ public class BookController {
     private final BookServiceImpl bookService;
 
     @PostMapping
-    public String handleBookIsbn(@RequestParam String isbn) {
-        if (isbn.isBlank() || !isbn.matches("\\d{10,13}"))
-            return "redirect:/books";
-        bookService.getBookByIsbn(isbn);
+    public String handleBookIsbn(@Valid @ModelAttribute IsnRequest request,
+                                 BindingResult bindingResult
+    ) {
+        if (bindingResult.hasErrors())
+            return "books";
+
+        bookService.getBookByIsbn(request.isbn());
         return "redirect:/books";
     }
 
