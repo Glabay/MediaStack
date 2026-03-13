@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="/game-index.css">
+    <script src="/GameSearch.js" defer></script>
+</head>
+<body>
+<div class="page-container">
+    <h1>Game Search</h1>
+
+    <form id="gameSearchForm" class="search-section">
+        <input
+                type="text"
+                id="gameSearch"
+                name="gameSearch"
+                placeholder="Search for a game..."
+                required
+        >
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="statusMessage" class="status-message"></div>
+    <div id="resultsContainer" class="results-container"></div>
+</div>
+</body>
+</html>

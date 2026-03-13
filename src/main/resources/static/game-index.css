@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #1f2933;
+}
+
+.page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+}
+
+.search-section {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.search-section input {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #cbd2d9;
+    border-radius: 8px;
+}
+
+.search-section button {
+    padding: 0.85rem 1.25rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+.search-section button:hover {
+    background-color: #1d4ed8;
+}
+
+.status-message {
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.game-card {
+    display: flex;
+    gap: 1rem;
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    align-items: flex-start;
+}
+
+.game-image-wrapper {
+    flex: 0 0 140px;
+}
+
+.game-image {
+    width: 140px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #e5e7eb;
+}
+
+.game-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.game-title {
+    margin: 0;
+    font-size: 1.35rem;
+}
+
+.game-meta {
+    color: #52606d;
+    font-size: 0.95rem;
+}
+
+.game-description {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+.save-button {
+    align-self: flex-start;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #16a34a;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.save-button:hover {
+    background-color: #15803d;
+}
+
+.save-button:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.empty-state {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    text-align: center;
+    color: #52606d;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 700px) {
+    .game-card {
+        flex-direction: column;
+    }
+
+    .game-image-wrapper {
+        flex: unset;
+    }
+
+    .game-image {
+        width: 100%;
+        max-width: 240px;
+        height: auto;
+    }
+
+    .search-section {
+        flex-direction: column;
+    }
+}

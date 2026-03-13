@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="/game-index.css">
+</head>
+<body>
+<div class="page-container">
+    <h1>My Games</h1>
+    <table>
+        <tbody>
+            <tr th:each="game : ${games}">
+                <td>
+                    <img th:src="${game.getImage()}"
+                         th:alt="${game.getTitle()}"
+                         width="75" height="112">
+                </td>
+                <td>
+                    <div>
+                        <strong>Title:</strong>
+                        <span th:text="${game.getTitle()}">Game Title</span>
+                    </div>
+                    <div>
+                        <strong>Release Year:</strong>
+                        <span th:text="${game.getReleaseYear()}">TBD</span>
+                    </div>
+                    <div>
+                        <strong>Genre:</strong>
+                        <span th:text="${game.getGenre()}">Unknown genre</span>
+                    </div>
+                    <div>
+                        <strong>Rating:</strong>
+                        <span th:text="${game.getGameBrainRating()}">0.0</span>
+                    </div>
+                    <div>
+                        <strong>Description:</strong>
+                        <span th:text="${game.getGameDescription()}">No description available</span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
